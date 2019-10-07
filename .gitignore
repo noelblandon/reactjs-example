@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+tania-rascia-example/node_modules
+tania-rascia-example/.pnp
+tania-rascia-example/.pnp.js
+
+# testing
+tania-rascia-example/coverage
+
+# production
+tania-rascia-example/build
+
+# misc
+tania-rascia-example/.DS_Store
+tania-rascia-example/.env.local
+tania-rascia-example/.env.development.local
+tania-rascia-example/.env.test.local
+tania-rascia-example/.env.production.local
+
+tania-rascia-example/npm-debug.log*
+tania-rascia-example/yarn-debug.log*
+tania-rascia-example/yarn-error.log*
