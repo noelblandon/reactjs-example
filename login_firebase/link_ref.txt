@@ -1,0 +1,3 @@
+https://carlosazaustre.es/conectando-firebase-a-react/
+
+https://react-firebase-js.com/docs/react-firebase-auth/getting-started#setup
