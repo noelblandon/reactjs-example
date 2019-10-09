@@ -1,8 +1,11 @@
-import React, { useReducer, useContext } from 'react';
+import React, { useReducer } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 import { makeStyles } from '@material-ui/core/styles';
+
+//Import immutability-helper
+import update from 'immutability-helper';
 
 //Material-UI Components
 import { Container, Typography, Grid, CssBaseline, Toolbar } from  '@material-ui/core';
@@ -38,20 +41,19 @@ export const AppContext = React.createContext();
 const initialState = {
 
     inputText: '',
+    testText: 'Hello world'
 
 };
 
 function reducer(state, action) {
-    switch (action.type) {
-        case 'UPDATE_INPUT':
-            return {
-                inputText: action.data
-            };
+  switch (action.type) {
+      case 'UPDATE_INPUT':
+          return update(state, { inputText: {$set: action.data}});
 
 
-        default:
-            return initialState;
-    }
+      default:
+          return initialState;
+  }
 }
 
 function App() {
@@ -61,7 +63,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
  
   return (
-    <div>
+    
       <Container maxWidth="lg">
         <CssBaseline />
         {/* Title */}
@@ -84,27 +86,22 @@ function App() {
             <Input_two/>
           </AppContext.Provider>  
         </Grid>
+
+        {/*display testText value*/}
+        <Toolbar>
+              <Typography
+                  component="h2"
+                  variant="h5"
+                  color="inherit"
+                  align="center"
+                  noWrap
+                  className={classes.toolbarTitle}
+              >
+                  {state.testText}
+              </Typography>
+          </Toolbar>
+
       </Container>
-
-      <!-- div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      
-      </div -->
-
-    </div>
   );
 }
 
