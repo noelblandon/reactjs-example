@@ -15,6 +15,8 @@ import { Container, Typography, Grid, CssBaseline, Toolbar } from  '@material-ui
 import Input_one from './components/Input_one';
 import Input_two from './components/Input_two';
 
+import { ReactRouter } from './pages/ReactRouter';
+
  // Firebase Config
  const firebaseConfig = {
   apiKey: "AIzaSyAqlQDZdMEcvk5Cw4-_f24gEQvuVphJO5I",
@@ -56,6 +58,7 @@ function reducer(state, action) {
   }
 }
 
+
 function App() {
 
   const classes = styles();
@@ -63,7 +66,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
  
   return (
-    
+     <div>
       <Container maxWidth="lg">
         <CssBaseline />
         {/* Title */}
@@ -102,6 +105,13 @@ function App() {
           </Toolbar>
 
       </Container>
+
+      <ReactRouter />
+
+      </div>
+      
+       
+       
   );
 }
 

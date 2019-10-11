@@ -7,3 +7,6 @@ https://react-firebase-js.com/docs/react-firebase-auth/getting-started#setup
 08-10-2019 -> revisar este leer 
 
 https://itnext.io/passing-data-between-sibling-components-in-react-using-context-api-and-react-hooks-fce60f12629a
+
+10-10-2019 actual 
+https://reacttraining.com/react-router/web/guides/quick-start
