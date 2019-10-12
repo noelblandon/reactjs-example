@@ -21,3 +21,25 @@ tania-rascia-example/.env.production.local
 tania-rascia-example/npm-debug.log*
 tania-rascia-example/yarn-debug.log*
 tania-rascia-example/yarn-error.log*
+
+# react-router
+react-router/node_modules
+react-router/.pnp
+react-router/.pnp.js
+
+# testing
+react-router/coverage
+
+# production
+react-router/build
+
+# misc
+react-router/.DS_Store
+react-router/.env.local
+react-router/.env.development.local
+react-router/.env.test.local
+react-router/.env.production.local
+
+react-router/npm-debug.log*
+react-router/yarn-debug.log*
+react-router/yarn-error.log*
