@@ -15,7 +15,7 @@ import { Container, Typography, Grid, CssBaseline, Toolbar } from  '@material-ui
 import Input_one from './components/Input_one';
 import Input_two from './components/Input_two';
 
-import Rutas from './pages/ReactRouter';
+import { ReactRouter } from './pages/ReactRouter';
 
  // Firebase Config
  const firebaseConfig = {
@@ -106,7 +106,7 @@ function App() {
 
       </Container>
 
-      <Rutas />
+      <ReactRouter />
 
       </div>
       
