@@ -2,7 +2,7 @@ import React from 'react';
 
 import { NavLink } from 'react-router-dom';
 
-import { Container, Navbar,Nav, Button, Form,FormControl } from 'react-bootstrap';    
+import { Container, Navbar,Nav, Button, Form,FormControl,NavDropdown } from 'react-bootstrap';    
 function Menu(){
    
     return(
@@ -14,12 +14,15 @@ function Menu(){
                         <NavLink to="/home" className="nav-link" activeClassName="active">Home</NavLink>
                         <NavLink to="/about" className="nav-link" activeClassName="active">Quienes somos</NavLink>
                         <NavLink to="/contact" className="nav-link" activeClassName="active"> Contactanos</NavLink>
-                        <NavLink to="/user" className="nav-link" activeClassName="active"> Usuarios</NavLink>
+                        <NavDropdown title="Usuarios" id="collasible-nav-dropdown">
+                            <NavLink className="dropdown-item"  to="/user">Lista de Usuarios</NavLink>
+                            <NavLink className="dropdown-item"  to="/user/create">Crear Nuevo Usuario</NavLink>
+                        </NavDropdown>
                     </Nav>
-                    <Form inline>
+                    {/*<Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                         <Button variant="outline-info">Search</Button>
-                    </Form> 
+                    </Form> */}
                 </Container>
             </Navbar>
     

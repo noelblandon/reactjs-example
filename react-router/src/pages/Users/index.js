@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Router, Switch, Route, useRouteMatch, Link } from 'react-router-dom';
+import { Switch, Route, useRouteMatch, Link } from 'react-router-dom';
 
 import ListUser from './ListUser';
 import CreateUser from './CreateUser';
@@ -11,7 +11,7 @@ function Users(){
 
     return (
         <> 
-           <Router>
+         { /*  
             <ul>
                 <li>
                     <Link to='/user'>Lista de Usuarios</Link>
@@ -20,10 +20,10 @@ function Users(){
                     <Link to={`${match.url}/create`}>Crear Usuario</Link>
                 </li>
                 <li>
-                    <Link to={`${match.url}/:id/edit`}>Editar Usuario</Link>
+                    <Link to={`${match.url}/edit`}>Editar Usuario</Link>
                 </li>
             </ul> 
-            
+            */}
             <Switch>   
             
                 <Route exact path={match.path}>
@@ -34,12 +34,12 @@ function Users(){
                     <CreateUser />
                 </Route>
 
-                <Route path={`${match.path}/:id/edit`}> 
+                <Route path={`${match.path}/edit`}> 
                     <EditUser />
                 </Route>
             
             </Switch> 
-          </Router>  
+          
         </>     
      
     );
