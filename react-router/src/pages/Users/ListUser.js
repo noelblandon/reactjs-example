@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 import axios from 'axios';
 
@@ -21,7 +21,7 @@ class ListUser extends Component{
           users: []
         };
 
-        this.tableRef = React.createRef();
+       
       }
     
     
@@ -32,17 +32,17 @@ class ListUser extends Component{
         const url = `${API_URL}/users`;
         axios.get(url).then(response => response.data)
              .then((data) => {
-          if (this._isMounted) {
-                  this.setState({ users: data })
-          }
+                  if (this._isMounted) {
+                          this.setState({ users: data });
+
+                          
+                  }
               })
       }
 
       componentWillUnmount() {
         this._isMounted = false;
       }
-    
-    
 
     render() {
        return (
@@ -80,7 +80,7 @@ class ListUser extends Component{
 
             {/* title: 'Birth Place', field: 'birthCity',lookup: { 34: 'İstanbul', 63: 'Şanlıurfa'} */}
             <MaterialTable        
-        title="Refresh Data Preview"
+        title="User List"
         tableRef={this.tableRef}
         columns={[
           
@@ -89,21 +89,7 @@ class ListUser extends Component{
             { title: 'Username', field: 'username' },
             { title: 'Email', field: 'email' },
         ]}
-        data={query =>
-          new Promise((resolve, reject) => {
-            let url = `${API_URL}/users`
-            fetch(url)
-              .then(response => response.json())
-              .then(result => {
-                console.log(result);
-                resolve({
-                  data: result.data,
-                  page: result.page - 1,
-                  totalCount: result.total,
-                })
-              })
-          })
-        }
+        data={ this.state.users }
         actions={[
           {
             icon: 'refresh',
@@ -111,17 +97,46 @@ class ListUser extends Component{
             isFreeAction: true,
             onClick: () => this.tableRef.current && this.tableRef.current.onQueryChange(),
           },
-          {
+         /* {
             icon: 'save',
             tooltip: 'Save User',
             onClick: (event, rowData) => window.alert("You saved " + rowData.name)
-          },
+          },*/
           {
             icon: 'delete',
             tooltip: 'Delete User',
             onClick: (event, rowData) => window.confirm("You want to delete " + rowData.name)
           }
         ]}
+        editable={{
+        onRowAdd: newData =>
+          new Promise(resolve => {
+            setTimeout(() => {
+              resolve();
+              const data = this.state.users;
+              data.push(newData);
+              this.setState({ users : data });
+            }, 600);
+          }),
+        onRowUpdate: (newData, oldData) =>
+          new Promise(resolve => {
+            setTimeout(() => {
+              resolve();
+              const data = this.state.users;
+              data[data.indexOf(oldData)] = newData;
+              this.setState({ users : data });
+            }, 600);
+          }),
+        onRowDelete: oldData =>
+          new Promise(resolve => {
+            setTimeout(() => {
+              resolve();
+              const data = this.state.users;
+              data.splice(data.indexOf(oldData), 1);
+              this.setState({ users : data });
+            }, 600);
+          }),
+      }}
       />
            
 
