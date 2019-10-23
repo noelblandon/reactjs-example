@@ -1,31 +1,27 @@
-import React from 'react';
+import React,{ lazy, Suspense } from 'react';
 
 import { Switch, Route, useRouteMatch, Link } from 'react-router-dom';
 
-import ListUser from './ListUser';
+/*import ListUser from './ListUser';
 import CreateUser from './CreateUser';
-import EditUser from './EditUser';
+import EditUser from './EditUser';*/
+
+
+
+import ListUser   from "./ListUser";
+import CreateUser from "./CreateUser";
+import EditUser   from "./EditUser";
+const API_URL  = "https://reqres.in/";
+
 
 function Users(){
     let match = useRouteMatch();
 
     return (
         <> 
-         { /*  
-            <ul>
-                <li>
-                    <Link to='/user'>Lista de Usuarios</Link>
-                </li>   
-                <li>
-                    <Link to={`${match.url}/create`}>Crear Usuario</Link>
-                </li>
-                <li>
-                    <Link to={`${match.url}/edit`}>Editar Usuario</Link>
-                </li>
-            </ul> 
-            */}
             <Switch>   
             
+                
                 <Route exact path={match.path}>
                     <ListUser />
                 </Route>
