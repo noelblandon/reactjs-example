@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 
 
-function CreateUser (){
+function CreateUser (props){
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = event => {
@@ -16,7 +16,7 @@ function CreateUser (){
   
       setValidated(true);
     };
-  
+    console.log(props.api_url);
     return (
       <Container > 
           <Card className="mt-5">

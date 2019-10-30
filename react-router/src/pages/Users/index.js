@@ -27,7 +27,7 @@ function Users(){
                 </Route>
                 
                 <Route path={`${match.path}/create`}>
-                    <CreateUser />
+                    <CreateUser api_url={ API_URL } />
                 </Route>
 
                 <Route path={`${match.path}/edit`}> 
