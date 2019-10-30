@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { createStore, bindActionCreators } from "redux";
 import { getUser } from "../../redux/user/actions";
 
 
